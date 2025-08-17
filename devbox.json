@@ -1,0 +1,16 @@
+{
+  "$schema":  "https://raw.githubusercontent.com/jetify-com/devbox/0.15.0/.schema/devbox.schema.json",
+  "packages": [
+    "ansible@2.18.7",
+    "just@1.40.0"
+  ],
+  "shell": {
+    "init_hook": [
+      "if [ -n \"$ZSH_VERSION\" ]; then export SHELL_NAME=zsh; elif [ -n \"$BASH_VERSION\" ]; then export SHELL_NAME=bash;fi",
+      "source <(just          --completions   $SHELL_NAME)"
+    ],
+    "scripts": {
+      "start": ["just start"]
+    }
+  }
+}
